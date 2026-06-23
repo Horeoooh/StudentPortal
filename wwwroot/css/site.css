@@ -1,0 +1,171 @@
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+    max-width: 100%;
+    width: 100vw;
+    position: relative;
+    z-index: 10;
+    padding: 0;
+}
+
+
+html {
+    background-color: #151823;
+}
+
+body {
+    width: 100vw;
+    margin-bottom: 60px;
+}
+
+header, .navbar, .navbar-brand, .nav-link {
+    z-index: 10000;
+    background-color: #24252A;
+    color: #edf0f1 !important;
+}
+
+.brand-text {
+    font-weight: 200;
+    padding-left: 20px;
+    margin-right: -3px;
+}
+
+.brand-text-bold {
+    font-weight: 600;
+}
+
+.navbar-brand {
+    font-size: 1rem;
+}
+
+.nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0 15px;
+}
+
+.navbar {
+    box-shadow: 0 .8rem 1rem rgba(0, 0, 0, 0.15);
+    margin-bottom: 0; 
+}
+
+header {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05) !important;
+    height: 3.7rem;
+    position: fixed;
+    width: 100vw;
+    border-bottom: 2px solid #00ffef !important;
+}
+
+.navbar-light {
+    background-color: transparent;
+}
+
+
+.nav-link:hover {
+    color: #858a8f !important;
+}
+
+.navbar-collapse {
+    margin-left: 150px;
+    justify-content: center;
+}
+
+.nav-link {
+    padding: 9px;
+    font-size: 0.9rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #edf0f1;
+    margin: 0 15px;
+}
+
+.nav-home {
+    margin-left: -110px;
+    margin-right: 10px;
+}
+
+.list-dropdown {
+    position: relative;
+    display: inline-block;
+    user-select: none;
+}
+
+.nav-dropdown-menu {
+    left: 20px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    display: none;
+    position: absolute;
+    background-color: #151823;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: auto;
+}
+
+.nav-item:hover .nav-dropdown-menu {
+    display: block; 
+}
+
+.nav-dropdown-menu li {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-dropdown-menu li a {
+    text-decoration: none;
+    color: #edf0f1;
+    display: block;
+    padding: 8px 16px;
+}
+
+.nav-dropdown-menu li a:hover {
+    background-color: #24252A;
+}
+
+.profile-pic {
+    width: 25px; /* Adjust size as needed */
+    height: 25px; /* Adjust size as needed */
+    border-radius: 50%;
+    background-color: #6ddcd6; /* Change to desired background color */
+    color: white; /* Change to desired text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1rem; /* Adjust font size as needed */
+    margin-top: 6px;
+    margin-left: -6px;
+}
+
+.d-flex button {
+    border: none;
+}
+
+.login-svg {
+    margin-right: 5px;
+}
+
+.account-nav {
+    font-size: 0.9rem;
+}
+
+#NavlinkUsername {
+    font-size: 0.8rem;
+    pointer-events: none;
+}
+
+#NavlinkSignOut {
+    font-size: 0.8rem;
+    margin-right: 10px;
+    gap: 5px;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}

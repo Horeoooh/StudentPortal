@@ -1,0 +1,202 @@
+﻿body {
+    width:100vw;
+    height: 100vh;
+    background-color: #fff;
+    color: black;
+    overflow-x: hidden;
+}
+
+html {
+    background-color: #fff;
+}
+
+.caption {
+    z-index: 100;
+    position: fixed;
+    height: 1.42rem;
+    width: 100vw;
+    background: #3b3b40;
+    color: #dee7e3;
+    font-weight: 300;
+    text-align: center;
+    font-size: 0.75rem;
+    border-bottom: 0.5px groove #a59eab;
+}
+
+#toast {
+    z-index: 90; /* Ensure it's on top */
+    background-color: #f1f1f1; /* Dark background */
+    margin-top: 6rem;
+    border: 1px solid #becac9; /* Highlight border */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Darker shadow */
+}
+
+.toast-header {
+    border-bottom: 1px solid #00cec1; /* Highlight border */
+}
+
+.custom-toast-img {
+    background-color: #51d251; /* Set the background color to green */
+    border-radius: 50%; /* Ensure the image remains rounded */
+    width: 20px; /* Set a width for the image */
+    height: 20px; /* Set a height for the image */
+    object-fit: cover; /* Ensure the image fits well within the rounded shape */
+}
+
+/*.shadow {
+    position: fixed;
+    height: 100vh;
+    width: 57vw;
+    z-index: 0;
+    box-shadow: inset -10px 0 10px -5px rgba(0, 0, 0, 0.5);
+}*/
+
+.background-picture {
+    position: fixed;
+    height: 100vh;
+    z-index: -5;
+    filter: brightness(30%) blur(10px) grayscale(80%);
+    transform: translate(-50px,-50px);
+}
+
+.pic-front-container {
+    position: fixed;
+    left: 2vw;
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 4vh;
+}
+
+.image-front {
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+    width: 85%;
+    height: 85%;
+    object-fit: cover;
+}
+
+html {
+    height: 100vh;
+}
+
+.content {
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 160px;
+    z-index: 5;
+    background-color: #fff;
+    height: auto;
+    width: 43vw;
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*box-shadow: -.3rem 0 2rem rgba(0, 0, 0, 0.3);*/ /* Shadow on the left */
+}
+
+.three-dots-icon {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+}
+
+.content-box {
+    position: relative;
+    left: 20px;
+    height: 75%;
+    width: 60%;
+}
+
+.plus-icon {
+   position: relative;
+   left: 120px;
+   margin-top: 20px;
+   margin-bottom: 30px;
+}
+
+.content h1{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.content h2 {
+    font-weight: 300;
+    font-size: 1.4rem;
+    margin-top: -8px;
+    color: gray;
+}
+
+.mt-3 {
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.form-control {
+    height: 2.5rem;
+    width: 90%;
+    border: 1px solid;
+    border-color: #999c9b;
+    margin-top: -3px;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none; 
+}
+
+.form-select {
+    height: 2.5rem;
+    width: 90%;
+    border: 1px solid;
+    border-color: #999c9b;
+    margin-top: -3px;
+}
+
+select {
+    color: #6c757d !important;
+}
+
+option:not(:first-of-type) {
+    color: black !important;
+}
+
+select:valid {
+    color: black !important;
+}
+
+.btn-container {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.btn-primary {
+    width: 90%; 
+    background-color: #0e0e0e; 
+    border-radius: 0; 
+    box-shadow: none; 
+    color: #fff; 
+    padding: 12px 20px; 
+    margin-left: 0; 
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 250ms;
+    border: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn-primary:hover {
+    background-color: #333; 
+    transform: scale(1.02); 
+}
+

@@ -1,0 +1,786 @@
+﻿body {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.edit-modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 35%;
+    position: absolute;
+    right: -100%;
+    top: 5%; 
+    animation: slideIn 0.5s forwards; 
+}
+
+.close {
+    z-index:1000;
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    color: black;
+    font-size: 28px;
+    font-weight: 500;
+    padding: 10px; 
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #606260;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        right: -100%; 
+    }
+    to {
+        right: 0;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        right: 0; 
+    }
+
+    to {
+        right: -100%; 
+    }
+}
+
+html {
+    background: #e8edf1;
+}
+
+.background {
+    position: fixed;
+    background: #e8edf1;
+    height: 100%;
+    width: 100%;
+}
+
+.caption {
+    z-index: 10000;
+    position: fixed;
+    height: 1.42rem;
+    width: 100vw;
+    background: #3b3b40;
+    color: #dee7e3;
+    font-weight: 300;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.search-form button {
+    border: none;
+    background: none;
+    color: #8b8ba7;
+}
+
+.search-form .search-btn {
+    pointer-events: none;
+}
+
+.search-form {
+    z-index: 900;
+    position: absolute !important;
+    top: 3.3rem;
+    right: 100px !important;
+    --timing: 0.3s;
+    --width-of-input: 300px;
+    --height-of-input: 40px;
+    --border-height: 2px;
+    --input-bg: #fff;
+    --border-color: #35dd48;
+    --border-radius: 30px;
+    --after-border-radius: 1px;
+    position: relative;
+    width: var(--width-of-input);
+    height: var(--height-of-input);
+    display: flex;
+    align-items: center;
+    padding-inline: 0.8em;
+    border-radius: var(--border-radius);
+    transition: border-radius 0.5s ease;
+    background: var(--input-bg,#fff);
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1); /* Added shadow */
+}
+
+/* Styling for the Search Input */
+.search-input {
+    font-size: 0.9rem;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding-inline: 0.5em;
+    padding-block: 0.7em;
+    border: none;
+}
+
+/* Styling of the Animated Border */
+.search-form:before {
+    content: "";
+    position: absolute;
+    background: var(--border-color);
+    transform: scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: var(--border-height);
+    left: 0;
+    bottom: 0;
+    border-radius: 1px;
+    transition: transform var(--timing) ease;
+}
+
+/* Hover on Search Input */
+.search-form:focus-within {
+    border-radius: var(--after-border-radius);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+/* Animated Border on Focus */
+.search-form:focus-within:before {
+    transform: scale(1);
+}
+
+/* styling of close button */
+/* == you can click the close button to remove text == */
+.reset {
+    border: none;
+    background: none;
+    opacity: 0;
+    visibility: hidden;
+}
+/* close button shown when typing */
+.search-input:not(:placeholder-shown) ~ .reset {
+    opacity: 1;
+    visibility: visible;
+}
+/* sizing svg icons */
+.search-form svg {
+    width: 17px;
+    margin-top: 3px;
+}
+
+.left-navbar {
+    border-right: 2px solid #83ff83;
+    overflow-y: auto;
+    position: fixed;
+    z-index: 100;
+    background-color: #24272a;
+    width: 4vw;
+    height: 100%;
+}
+
+.left-navbar h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1vw;
+    position: relative;
+    margin-left: 0;
+    top: 2rem;
+    color: white;
+}
+
+.list-icon {
+    margin-top: 40px;
+    text-align: center;
+    position: relative;
+    width: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 30px;
+}
+
+h1 {
+    position: relative;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 3vh;
+    margin-left: 8vw;
+}
+
+h2 {
+    position: relative;
+    margin-top: -1vh;
+    color: #343433;
+    font-size: 1rem;
+    font-weight: 300;
+    margin-left: 8vw;
+}
+
+/*.add-card {*/
+    /*    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.2);*/
+    /*border-radius: 20px;
+    position: absolute;
+    z-index: 999;
+    right: 12vw;
+    top: 5vh;
+    width: 10rem;
+    height: 6rem;
+    background: rgba(111, 248, 82, 0.65);*/ /* Lighter green solid color as a fallback */
+    /*background: rgb(111,248,82);
+    background: radial-gradient(circle, rgba(111,248,82,.65) 60%, rgba(52, 252, 59, 0.65) 100%);
+}
+
+.fa-plus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-70%);
+    color: white;
+    font-size: 2rem;
+}*/
+
+.fa-list-alt {
+    color: #8cc2c2;
+    margin-right: 10px;
+}
+
+.nav-ic-selected {
+    position: relative; 
+    border-left: 5px solid #24efef;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    background: #292b2c;
+    width: 100%;
+}
+
+.nav-ic {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+
+.tooltip {
+    padding: 5px; 
+}
+
+.tooltip .tooltip-arrow {
+    bottom: auto !important;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-item-header {
+    user-select: none;
+    margin-left: 15px;
+    margin-top: 70px;
+    color: #d5d7d8;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.navbar-items {
+    text-align: center;
+    font-weight: 300;
+    font-size: 1rem;
+    color: white;
+    margin-top: 0;
+    width: 100%;
+}
+
+.nav-ic-selected:hover {
+    cursor: pointer;
+}
+
+.nav-ic-selected:hover .navbar-items {
+    color: #cbcccc;
+}
+
+.nav-ic:hover {
+    display: inline-block;
+    background-color: #232424;
+    cursor: pointer;
+}
+
+.nav-ic:hover .navbar-items {
+    color: #cbcccc;
+}
+
+.navbar-items:hover {
+    color: #cbcccc;
+    cursor: pointer;
+}
+
+.three-dots-icon {
+    z-index: 10;
+    width: 50px;
+    left: 10px;
+    position: absolute;
+}
+
+.placeholder {
+    position: relative;
+    width: 100vw;
+    height: 1.42rem;
+    background: transparent;
+}
+
+.content {
+    border-radius: 10px;
+    z-index: 100;
+    background-color: #fff;
+    border: dotted 1px white;
+    position: relative;
+    margin-left: 10vw;
+    margin-bottom: 70px;
+    width: 83.5vw;
+    margin-top: 3vh;
+    padding: 1px;
+    height: 100%;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table-container {
+    padding-top: 40px;
+    
+    z-index: 1;
+    width: 95%;
+    max-height: 80%; 
+    overflow-x: auto;
+    position: relative;
+    overflow-y: auto;
+}
+
+.table {
+    overflow-y: auto;
+    table-layout: auto;
+    margin-left: 7%;
+    width: 90%;
+    margin-right: auto;
+    padding-right: 0;
+    border-collapse: collapse;
+    border: 1px solid #babdbf;
+}
+
+.placeholder-box {
+    width: 100%;
+    height: 70px;
+}
+
+.active-icon {
+    width: 15px;
+    margin-top: -5px;
+    margin-right: 5px;
+}
+
+.active-status {
+    color: #286228; 
+}
+
+.inactive-status {
+    color: #414140; 
+}
+
+.closed-status {
+    color: #d05151;
+}
+
+.restricted-status {
+    color: #eb9800; 
+}
+
+.dissolved-status {
+    color: #70703b; 
+}
+
+.active-status, .inactive-status, .closed-status, .restricted-status, .dissolved-status {
+    white-space: nowrap;
+}
+
+.closed-icon {
+    filter: hue-rotate(270deg) saturate(1.5) brightness(0.95);
+}
+
+.restricted-icon {
+    filter: hue-rotate(300deg) saturate(1.5);
+}
+
+.dissolved-icon {
+    filter: hue-rotate(-10deg) saturate(0.7) brightness(1); 
+}
+
+.grayed-out {
+    filter: grayscale(100%);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.dropdown-menu {
+    font-size: 0.8rem;
+    font-weight: 300;
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 100px;
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: black;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+.fas.fa-cog {
+    color: black;
+}
+
+.fa-caret-down {
+    color: black;
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.button-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.table thead th {
+    position: sticky;
+    top: 0; 
+    z-index: 10;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    color: #5b5c5c;
+    background-color: #e0e0e0;
+    padding-top: 2px;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ccc;
+}
+
+.table tbody td {
+    font-weight: 500;
+    max-height: 50%; 
+    font-size: 1rem;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f7f7;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: white; 
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1; 
+}
+
+.delete-form {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-primary {
+    background-color: #222727;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff;
+    margin-left: 0;
+    border-radius: 10px;
+    transition: all 250ms;
+    border: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn-primary:hover {
+    background-color: #333;
+    transform: scale(1.02);
+}
+
+.cap-icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    width: 40px;
+    opacity: 0.9;
+}
+
+.details-row {
+    position: relative;
+}
+
+.details-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #5283b2;
+    gap: 7px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+/*.details-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 10%;*/ /* Adjust this to center the border within the link */
+    /*width: 80%;*/ /* 80% width for the border */
+    /*border-bottom: 2px solid #3d8cdc;*/ /* Dark blue border */
+    /*transition: width 0.3s ease, left 0.3s ease;
+}*/
+
+.details-link i {
+    margin-right: 6px;
+}
+
+.details-link:hover {
+    color: #3a89d8;
+    transform: scale(1.05);
+}
+
+.details-link:focus {
+    outline: none;
+}
+
+.details-modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    max-width: 90%; /* Adjusts responsively */
+    min-height: 70%;
+    position: absolute;
+    left: 50%;
+    top: 17.5%;
+    overflow-x: auto;
+    border-radius: 20px;
+    transform: translateX(-50%);
+    animation: fadeIn 0.75s forwards;
+}
+
+.details-modal-content .close {
+    top: 10px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+#detailsContent {
+    position: relative;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+}
+
+.blank-pfp {
+    width: 10.5rem;
+    height: 12rem; /* Set equal width and height for a circle */
+    position: relative;
+    padding-top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%; /* Makes it a circle */
+    overflow: hidden; /* Ensures content fits within the circle */
+    object-fit: cover;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+#detailsContent h1, #detailsContent h2 {
+    margin: 0;
+    padding: 0;
+    left: 0;
+    position: relative;
+    text-align: center;
+}
+
+#detailsContent h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+#detailsContent span {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+#detailsContent h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+.details-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-table th, .details-table td {
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.details-table th {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+}
+
+.details-table td {
+    background-color: #fff;
+    color: #555;
+    border-bottom: 1px solid #eee;
+}
+
+.details-table tr:last-child td {
+    border-bottom: none;
+}
+
+.no-outline {
+    position: relative;
+    outline: none;
+    border: none;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.status-dropdown {
+    background: none;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 14px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    appearance: none; /* Removes default dropdown styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    cursor: pointer;
+    padding-right: 20px; /* Extra space for custom arrow */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+}
+
+    .status-dropdown:focus {
+        border-color: #007bff; /* Slightly highlighted border on focus */
+    }
+
+    .status-dropdown option {
+        background: #fefefe; /* Light background for options */
+        color: #333;
+    }
+
+footer {
+    z-index: 100;
+    border-top: solid 2px #bfc3c5;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.male-stud-icon { 
+    width: 100px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.privacy-text {
+    position: absolute;
+    right: 110px;
+    bottom: 15px; 
+    color: #5b5b5b;
+    font-size: 0.9rem; 
+}
+
+.portal-text {
+    position: absolute;
+    left: 20px;
+    bottom: 15px; 
+    color: #5b5b5b;
+    font-size: 0.9rem; 
+}
